@@ -19,6 +19,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; powershell .\powershell.\choco
 
 ### WSLインストール
 [MSのインストールページ](https://docs.microsoft.com/ja-jp/windows/wsl/install)を参照
+仮想化がオンになっていない可能性あり
+[参考：【WSL2】wsl2のインストールで0x80370102 エラーが出たときの対処方法【HP】](https://monkey999por.hatenablog.com/entry/2020/10/01/221243)
 
 
 ## vscodeのセットアップ
