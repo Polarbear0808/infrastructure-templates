@@ -7,6 +7,7 @@
         "mechatroner.rainbow-csv",
         "eamodio.gitlens",
         "ms-azuretools.vscode-docker",
-        "ms-vscode-remote.vscode-remote-extensionpack"
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-vscode.powershell"
     ]
 }
