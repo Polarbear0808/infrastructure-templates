@@ -1,0 +1,29 @@
+# Run `Set-ExecutionPolicy Bypass -Scope Process -Force; powershell .\chocolatey.ps1` in the same directory of this file.
+
+choco install -y `
+	git `
+	everything `
+	vscode `
+	intellijidea-community `
+	sakuraeditor `
+	stirling-jp `
+	googlechrome `
+	microsoft-edge `
+	firefox `
+	brave `
+	rlogin `
+	heidisql `
+	screentogif `
+	7zip `
+	winmerge `
+	anydesk `
+	powerautomatedesktop `
+	ruby `
+	python `
+	golang `
+	rust `
+	nodejs-lts `
+	yarn `
+	awscli `
+	azure-cli `
+	mousewithoutborders
