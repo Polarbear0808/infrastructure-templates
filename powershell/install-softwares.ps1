@@ -18,6 +18,8 @@ choco install -y `
 	winmerge `
 	anydesk `
 	powerautomatedesktop `
+	corretto11jdk `
+	groovy `
 	ruby `
 	python `
 	golang `
@@ -26,4 +28,5 @@ choco install -y `
 	yarn `
 	awscli `
 	azure-cli `
-	mousewithoutborders
+	mousewithoutborders `
+	zoom
