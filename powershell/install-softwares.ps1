@@ -1,4 +1,4 @@
-# Run `Set-ExecutionPolicy Bypass -Scope Process -Force; powershell .\chocolatey.ps1` in the same directory of this file.
+# Run `Set-ExecutionPolicy Bypass -Scope Process -Force; powershell .\install-softwares.ps1` in the same directory of this file.
 
 choco install -y `
 	git `
