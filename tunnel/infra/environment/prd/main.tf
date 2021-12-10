@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  region  = "ap-northeast-1"
   profile = "polar_cli"
 }
 
@@ -18,8 +18,8 @@ module "chisel-server" {
   env                = "dev"
   cidr_vpc           = "10.255.0.0/16"
   cidr_public_subnet = "10.255.1.0/24"
-  az1                = "us-east-1a"
-  ami                = "ami-083654bd07b5da81d"
+  az1                = "ap-northeast-1a"
+  ami                = "ami-036d0684fc96830ca"
   instance_type      = "t2.micro"
   key_name           = "id_aws"
 }
