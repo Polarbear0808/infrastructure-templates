@@ -37,6 +37,13 @@ resource "aws_instance" "ec2" {
     network_interface_id = aws_network_interface.eni.id
     device_index         = 0
   }
+  root_block_device {
+    delete_on_termination = true
+    volume_size           = var.volume_size
+    tags = {
+      Name = "${var.system}-${var.env}-root-ebs"
+    }
+  }
   tags = {
     Name = "${var.system}-${var.env}-ec2"
   }

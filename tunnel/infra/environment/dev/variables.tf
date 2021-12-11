@@ -38,3 +38,7 @@ variable "key_name" {
   type    = string
   default = "id_aws"
 }
+variable "volume_size" {
+  type    = number
+  default = 8
+}

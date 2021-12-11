@@ -22,4 +22,5 @@ module "chisel-server" {
   ami                = var.ami
   instance_type      = var.instance_type
   key_name           = var.key_name
+  volume_size        = var.volume_size
 }
