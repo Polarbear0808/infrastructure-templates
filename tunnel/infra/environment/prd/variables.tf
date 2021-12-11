@@ -1,6 +1,6 @@
 variable "aws_region" {
   type    = string
-  default = "us-east-1"
+  default = "ap-northeast-1"
 }
 variable "aws_profile" {
   type    = string
@@ -12,7 +12,7 @@ variable "system" {
 }
 variable "env" {
   type    = string
-  default = "dev"
+  default = "prd"
 }
 variable "cidr_vpc" {
   type    = string
@@ -28,7 +28,7 @@ variable "az1" {
 }
 variable "ami" {
   type    = string
-  default = "ami-083654bd07b5da81d" # ubuntu20.04
+  default = "ami-036d0684fc96830ca" # ubuntu20.04
 }
 variable "instance_type" {
   type    = string
