@@ -93,31 +93,3 @@ resource "aws_security_group_rule" "main-sg-ingress-https" {
   security_group_id = aws_security_group.main-sg.id
 }
 
-# ACL
-# resource "aws_network_acl" "main" {
-#   vpc_id = aws_vpc.vpc.id
-#   subnet_ids = compact(
-#     flatten([
-#       aws_subnet.public.*.id
-#     ])
-#   )
-#   egress {
-#     protocol   = -1
-#     rule_no    = 100
-#     action     = "allow"
-#     cidr_block = "0.0.0.0/0"
-#     from_port  = 0
-#     to_port    = 0
-#   }
-#   ingress {
-#     protocol   = -1
-#     rule_no    = 100
-#     action     = "allow"
-#     cidr_block = "61.87.42.151/32"
-#     from_port  = 0
-#     to_port    = 0
-#   }
-#   tags = {
-#     Name = "${var.system}-${var.env}-nacl"
-#   }
-# }
