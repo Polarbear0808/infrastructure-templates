@@ -8,18 +8,18 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
-  profile = "polar_cli"
+  region  = var.aws_region
+  profile = var.aws_profile
 }
 
 module "chisel-server" {
   source             = "../../module/ec2"
-  system             = "chisel-server"
-  env                = "dev"
-  cidr_vpc           = "10.255.0.0/16"
-  cidr_public_subnet = "10.255.1.0/24"
-  az1                = "us-east-1a"
-  ami                = "ami-083654bd07b5da81d"
-  instance_type      = "t2.micro"
-  key_name           = "id_aws"
+  system             = var.system
+  env                = var.env
+  cidr_vpc           = var.cidr_vpc
+  cidr_public_subnet = var.cidr_public_subnet
+  az1                = "${var.aws_region}${var.az1}"
+  ami                = var.ami
+  instance_type      = var.instance_type
+  key_name           = var.key_name
 }
