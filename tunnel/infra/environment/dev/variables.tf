@@ -14,6 +14,10 @@ variable "env" {
   type    = string
   default = "dev"
 }
+variable "cidr_blocks_local" {
+  type    = list(string)
+  default = ["0.0.0.0/0"]
+}
 variable "cidr_vpc" {
   type    = string
   default = "10.255.0.0/16"

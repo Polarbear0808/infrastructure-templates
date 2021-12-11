@@ -7,8 +7,6 @@ variable "cidr_any" {
   type    = string
   default = "0.0.0.0/0"
 }
-variable "cidr_warabi" {
-  type      = string
-  default   = "0.0.0.0/0"
-  sensitive = true
+variable "cidr_blocks_local" {
+  type = list(string)
 }
