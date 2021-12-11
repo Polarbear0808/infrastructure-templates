@@ -3,5 +3,12 @@ version: '3.7'
 services:
   web:
     image: nginx
-  ports:
-    - 80:80
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+  ssh:
+    image: niruix/sshwifty
+    container_name: sshwifty
+    ports:
+      - 8182:8182
