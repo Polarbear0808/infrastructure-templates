@@ -15,7 +15,7 @@ provider "aws" {
 module "chisel-server" {
   source             = "../../module/ec2"
   system             = "chisel-server"
-  env                = "dev"
+  env                = "prd"
   cidr_vpc           = "10.255.0.0/16"
   cidr_public_subnet = "10.255.1.0/24"
   az1                = "ap-northeast-1a"
