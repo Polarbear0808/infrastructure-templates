@@ -26,3 +26,20 @@ module "chisel-server" {
   user_data          = var.user_data
   volume_size        = var.volume_size
 }
+
+locals {
+  route53_records = [
+    {
+      name    = "${var.www_host_name}.${var.zone_name}"
+      type    = "A"
+      ttl     = "300"
+      records = [module.chisel-server.eip_public]
+    }
+  ]
+}
+
+module "route53-records" {
+  source          = "../../module/route53"
+  zone_name       = var.zone_name
+  route53_records = local.route53_records
+}

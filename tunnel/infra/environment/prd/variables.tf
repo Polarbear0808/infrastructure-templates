@@ -50,3 +50,15 @@ variable "volume_size" {
   type    = number
   default = 8
 }
+
+# route53
+variable "zone_name" {
+  description = "ゾーンのドメイン名"
+  type        = string
+  default     = "polarbear08.com"
+}
+variable "www_host_name" {
+  description = "ゾーン内のwebサーバのホスト名"
+  type        = string
+  default     = "www"
+}

@@ -3,6 +3,9 @@ resource "aws_route53_zone" "zone-name" {
     create_before_destroy = false
   }
   name = var.zone_name
+  tags = {
+    Name = "${var.system}-${var.env}-zone"
+  }
 }
 
 resource "aws_route53_record" "record" {
