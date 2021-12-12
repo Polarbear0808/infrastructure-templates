@@ -14,6 +14,10 @@ variable "env" {
   type    = string
   default = "prd"
 }
+variable "cidr_blocks_local" {
+  type    = list(string)
+  default = ["0.0.0.0/0"]
+}
 variable "cidr_vpc" {
   type    = string
   default = "10.255.0.0/16"
@@ -37,6 +41,10 @@ variable "instance_type" {
 variable "key_name" {
   type    = string
   default = "id_aws"
+}
+variable "user_data" {
+  type    = string
+  default = "../../../server/init/aws_ubuntu_init.sh"
 }
 variable "volume_size" {
   type    = number

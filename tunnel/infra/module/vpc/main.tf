@@ -63,33 +63,27 @@ resource "aws_security_group_rule" "main-sg-egress" {
   security_group_id = aws_security_group.main-sg.id
 }
 resource "aws_security_group_rule" "main-sg-ingress-warabi-ssh" {
-  type      = "ingress"
-  from_port = 22
-  to_port   = 22
-  protocol  = "tcp"
-  cidr_blocks = [
-    "${var.cidr_warabi}"
-  ]
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = var.cidr_blocks_local
   security_group_id = aws_security_group.main-sg.id
 }
 resource "aws_security_group_rule" "main-sg-ingress-http" {
-  type      = "ingress"
-  from_port = 80
-  to_port   = 80
-  protocol  = "tcp"
-  cidr_blocks = [
-    "${var.cidr_warabi}"
-  ]
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = var.cidr_blocks_local
   security_group_id = aws_security_group.main-sg.id
 }
 resource "aws_security_group_rule" "main-sg-ingress-https" {
-  type      = "ingress"
-  from_port = 443
-  to_port   = 443
-  protocol  = "tcp"
-  cidr_blocks = [
-    "${var.cidr_warabi}"
-  ]
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks       = var.cidr_blocks_local
   security_group_id = aws_security_group.main-sg.id
 }
 

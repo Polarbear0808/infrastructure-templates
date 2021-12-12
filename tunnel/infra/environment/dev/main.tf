@@ -16,6 +16,7 @@ module "chisel-server" {
   source             = "../../module/ec2"
   system             = var.system
   env                = var.env
+  cidr_blocks_local  = var.cidr_blocks_local
   cidr_vpc           = var.cidr_vpc
   cidr_public_subnet = var.cidr_public_subnet
   az1                = "${var.aws_region}${var.az1}"
