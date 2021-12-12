@@ -34,6 +34,12 @@ locals {
       type    = "A"
       ttl     = "300"
       records = [module.chisel-server.eip_public]
+    },
+    {
+      name    = "${var.zone_name}"
+      type    = "A"
+      ttl     = "300"
+      records = [module.chisel-server.eip_public]
     }
   ]
 }
