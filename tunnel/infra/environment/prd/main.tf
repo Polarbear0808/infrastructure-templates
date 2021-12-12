@@ -40,6 +40,8 @@ locals {
 
 module "route53-records" {
   source          = "../../module/route53"
+  system          = var.system
+  env             = var.env
   zone_name       = var.zone_name
   route53_records = local.route53_records
 }
