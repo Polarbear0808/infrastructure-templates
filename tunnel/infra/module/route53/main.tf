@@ -1,4 +1,4 @@
-resource "aws_route53_zone" "zone-name" {
+resource "aws_route53_zone" "zone" {
   lifecycle {
     create_before_destroy = false
   }
@@ -11,7 +11,7 @@ resource "aws_route53_zone" "zone-name" {
 resource "aws_route53_record" "record" {
   count = length(var.route53_records)
 
-  zone_id = aws_route53_zone.zone-name.id
+  zone_id = aws_route53_zone.zone.id
   name    = var.route53_records[count.index].name
   type    = var.route53_records[count.index].type
   ttl     = var.route53_records[count.index].ttl
