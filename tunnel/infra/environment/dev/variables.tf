@@ -44,7 +44,7 @@ variable "key_name" {
 }
 variable "user_data" {
   type    = string
-  default = "../../../server/init/aws_ubuntu_init.sh"
+  default = "../../../server/init/aws_ubuntu_amd64_init.sh"
 }
 variable "volume_size" {
   type    = number
@@ -55,7 +55,7 @@ variable "volume_size" {
 variable "zone_name" {
   description = "ゾーンのドメイン名"
   type        = string
-  default     = "polarbear08.com"
+  default     = "dev.polarbear08.com"
 }
 variable "www_host_name" {
   description = "ゾーン内のwebサーバのホスト名"

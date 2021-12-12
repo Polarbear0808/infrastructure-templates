@@ -32,7 +32,7 @@ variable "az1" {
 }
 variable "ami" {
   type    = string
-  default = "ami-036d0684fc96830ca" # ubuntu20.04
+  default = "ami-0e61b583d5d7356b8" # ubuntu20.04 Arm
 }
 variable "instance_type" {
   type    = string
@@ -44,7 +44,7 @@ variable "key_name" {
 }
 variable "user_data" {
   type    = string
-  default = "../../../server/init/aws_ubuntu_init.sh"
+  default = "../../../server/init/aws_ubuntu_arm64_init.sh"
 }
 variable "volume_size" {
   type    = number
