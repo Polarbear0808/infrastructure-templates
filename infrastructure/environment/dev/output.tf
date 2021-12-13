@@ -1,3 +1,3 @@
-output "chisel-server_eip" {
-  value = module.chisel-server.eip_public
+output "tunnel-server_eip" {
+  value = module.tunnel-server.eip_public
 }

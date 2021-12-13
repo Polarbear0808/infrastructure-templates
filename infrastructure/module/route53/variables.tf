@@ -12,13 +12,8 @@ variable "zone_name" {
   type        = string
 }
 
-variable "route53_records" {
-  description = "route53のレコード一覧"
-  type = list(object({
-    name    = string
-    type    = string
-    ttl     = string
-    records = list(string)
-  }))
-  default = null
+variable "ns_records" {
+  description = "NSレコードに設定するDNS一覧"
+  type        = list(string)
+  default     = []
 }
