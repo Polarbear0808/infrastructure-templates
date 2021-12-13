@@ -35,7 +35,7 @@ resource "aws_route53_record" "soa" {
   type            = "SOA"
   zone_id         = aws_route53_zone.zone.zone_id
   records = [format("%s. %s. %d %d %d %d %d",
-    aws_route53_zone.zone.name_servers[0],
+    local.ns_records[0],
     "awsdns-hostmaster.amazon.com",
     1,
     30 * 60,
