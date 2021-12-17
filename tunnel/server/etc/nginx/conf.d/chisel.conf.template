@@ -1,0 +1,15 @@
+upstream chisel {
+    server localhost:${CHISEL_SERVER_PORT};
+}
+
+server {
+    listen 443 ssl;
+    server_name ${SERVER_NAME};
+
+    location / {
+            http://chisel;
+    }
+    
+    ssl_certificate     /etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem;
+}
