@@ -8,7 +8,7 @@ variable "aws_profile" {
 }
 variable "system" {
   type    = string
-  default = "chisel-server"
+  default = "tunnel-server"
 }
 variable "env" {
   type    = string
@@ -55,7 +55,12 @@ variable "volume_size" {
 variable "zone_name" {
   description = "ゾーンのドメイン名"
   type        = string
-  default     = "polarbear08.com"
+  default     = "example.com"
+}
+variable "ns_records" {
+  description = "NSレコードに設定するDNS一覧"
+  type        = list(string)
+  default     = []
 }
 variable "www_host_name" {
   description = "ゾーン内のwebサーバのホスト名"
