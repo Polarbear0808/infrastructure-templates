@@ -1,12 +1,6 @@
 version: '3.7'
 
 services:
-  # web:
-  #   image: nginx
-  #   container_name: nginx
-  #   ports:
-  #     - 80:80
-  #     - 443:443
   chisel-server:
     image: jpillora/chisel
     restart: always

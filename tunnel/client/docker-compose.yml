@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  chisel-client:
+    image: jpillora/chisel
+    restart: always
+    container_name: chisel-client
+    command: "client -v ${CHISEL_SERVER_NAME} ${SERVICES}"
