@@ -1,12 +1,20 @@
 version: '3.7'
 
 services:
-  web:
-    image: nginx
-    container_name: nginx
-    ports:
-      - 80:80
-      - 443:443
+  # web:
+  #   image: nginx
+  #   container_name: nginx
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  chisel-server:
+    image: jpillora/chisel
+    restart: always
+    container_name: chisel-server
+    expose:
+      - ${CHISEL_SERVER_PORT}
+    network_mode: host
+    command: server -v -p ${CHISEL_SERVER_PORT} -reverse
   ssh:
     image: niruix/sshwifty
     container_name: sshwifty
