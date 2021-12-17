@@ -1,16 +1,27 @@
-version: "3.9"
-
+version: "3.3"
+  
 services:
   web:
     image: nginx:${NGINX_TAG}
     container_name: nginx
     network_mode: host
+    environment:
+      SERVER_NAME: ${SERVER_NAME}
+      DOMAIN_NAME: ${DOMAIN_NAME}
     volumes:
       - letsencrypt:/etc/letsencrypt:ro
+      - ./etc/nginx/conf.d:/etc/nginx/conf.d
+    command: >
+      /bin/sh -c
+      "envsubst '
+      $$SERVER_NAME
+      $$DOMAIN_NAME
+      ' < /etc/nginx/conf.d/ssl.conf.template > /etc/nginx/conf.d/ssl.conf
+      && nginx -g 'daemon off;'"
   cert:
     image: certbot/dns-route53:${CERTBOT_TAG}
     container_name: certbot
-    command: certonly --dns-route53 --dns-route53-propagation-seconds=120 --non-interactive --agree-tos -m ${MAIL_ADDR} -d "${DOMAIN}" -d "*.${DOMAIN}"
+    command: certonly --dns-route53 --dns-route53-propagation-seconds=300 --non-interactive --agree-tos -m ${MAIL_ADDR} -d "${DOMAIN_NAME}" -d "*.${DOMAIN_NAME}"
     depends_on:
       - web
     network_mode: host
