@@ -32,11 +32,11 @@ variable "az1" {
 }
 variable "ami" {
   type    = string
-  default = "ami-036d0684fc96830ca" # ubuntu20.04
+  default = "ami-0e61b583d5d7356b8" # ubuntu20.04 Arm
 }
 variable "instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t4g.small"
 }
 variable "key_name" {
   type    = string
@@ -44,9 +44,21 @@ variable "key_name" {
 }
 variable "user_data" {
   type    = string
-  default = "../../../server/init/aws_ubuntu_init.sh"
+  default = "../../init/aws_ubuntu_arm64_init.sh"
 }
 variable "volume_size" {
   type    = number
   default = 8
+}
+
+# route53
+variable "zone_name" {
+  description = "ゾーンのドメイン名"
+  type        = string
+  default     = "polarbear08.com"
+}
+variable "www_host_name" {
+  description = "ゾーン内のwebサーバのホスト名"
+  type        = string
+  default     = "www"
 }

@@ -1,6 +1,6 @@
 variable "aws_region" {
   type    = string
-  default = "us-east-1"
+  default = "ap-northeast-1"
 }
 variable "aws_profile" {
   type    = string
@@ -8,11 +8,11 @@ variable "aws_profile" {
 }
 variable "system" {
   type    = string
-  default = "chisel-server"
+  default = "tunnel-server"
 }
 variable "env" {
   type    = string
-  default = "dev"
+  default = "prd"
 }
 variable "cidr_blocks_local" {
   type    = list(string)
@@ -32,11 +32,11 @@ variable "az1" {
 }
 variable "ami" {
   type    = string
-  default = "ami-083654bd07b5da81d" # ubuntu20.04
+  default = "ami-0e61b583d5d7356b8" # ubuntu20.04 Arm
 }
 variable "instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t4g.small"
 }
 variable "key_name" {
   type    = string
@@ -44,7 +44,7 @@ variable "key_name" {
 }
 variable "user_data" {
   type    = string
-  default = "../../init/aws_ubuntu_amd64_init.sh"
+  default = "../../init/aws_ubuntu_arm64_init.sh"
 }
 variable "volume_size" {
   type    = number
@@ -55,7 +55,12 @@ variable "volume_size" {
 variable "zone_name" {
   description = "ゾーンのドメイン名"
   type        = string
-  default     = "dev.polarbear08.com"
+  default     = "example.com"
+}
+variable "ns_records" {
+  description = "NSレコードに設定するDNS一覧"
+  type        = list(string)
+  default     = []
 }
 variable "www_host_name" {
   description = "ゾーン内のwebサーバのホスト名"

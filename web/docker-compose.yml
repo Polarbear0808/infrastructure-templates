@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  web:
+    image: nginx:${NGINX_TAG}
+    container_name: nginx
+    network_mode: host
+    volumes:
+      - letsencrypt:/etc/letsencrypt:ro
+  cert:
+    image: certbot/dns-route53:${CERTBOT_TAG}
+    container_name: certbot
+    command: certonly --dns-route53 --dns-route53-propagation-seconds=120 --non-interactive --agree-tos -m ${MAIL_ADDR} -d "${DOMAIN}" -d "*.${DOMAIN}"
+    depends_on:
+      - web
+    network_mode: host
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - ./.aws:/root/.aws
+
+volumes:
+  letsencrypt:
