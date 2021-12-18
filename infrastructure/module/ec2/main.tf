@@ -31,10 +31,11 @@ resource "aws_eip" "eip" {
 }
 
 resource "aws_instance" "ec2" {
-  ami           = var.ami
-  instance_type = var.instance_type
-  key_name      = aws_key_pair.aws.key_name
-  user_data     = file(var.user_data)
+  ami                  = var.ami
+  instance_type        = var.instance_type
+  key_name             = aws_key_pair.aws.key_name
+  user_data            = file(var.user_data)
+  iam_instance_profile = var.iam_instance_profile_name
   network_interface {
     network_interface_id = aws_network_interface.eni.id
     device_index         = 0

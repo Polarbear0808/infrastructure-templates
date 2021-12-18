@@ -8,31 +8,65 @@ terraform {
 }
 
 provider "aws" {
-  region  = var.aws_region
+  region  = local.aws_region
   profile = var.aws_profile
 }
 
-# module "gateway-zone" {
-#   source     = "../../module/route53"
-#   system     = var.system
-#   env        = var.env
-#   zone_name  = var.zone_name
-#   ns_records = var.ns_records
+# resource "aws_iam_role" "certbot-role" {
+#   name = "test_role"
+
+#   assume_role_policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       {
+#         Action = "sts:AssumeRole"
+#         Effect = "Allow"
+#         Sid    = ""
+#         Principal = {
+#           Service = "ec2.amazonaws.com"
+#         }
+#       },
+#       {
+#         Action = [
+#           "route53:ListHostedZones",
+#           "route53:GetChange"
+#         ],
+#         Effect = "Allow",
+#         Resource = [
+#           "*"
+#         ]
+#       },
+#       {
+#         Action = [
+#           "route53:ChangeResourceRecordSets"
+#         ],
+#         Effect = "Allow",
+#         Resource = [
+#           "arn:aws:route53:::hostedzone/${data.aws_route53_zone.zone.zone_id}"
+#         ]
+#       }
+#     ]
+#   })
+
+#   tags = {
+#     Name = "${local.system}-${local.env}-role"
+#   }
 # }
 
 module "tunnel-server" {
-  source             = "../../module/ec2"
-  system             = var.system
-  env                = var.env
-  cidr_blocks_local  = var.cidr_blocks_local
-  cidr_vpc           = var.cidr_vpc
-  cidr_public_subnet = var.cidr_public_subnet
-  az1                = "${var.aws_region}${var.az1}"
-  ami                = var.ami
-  instance_type      = var.instance_type
-  key_name           = var.key_name
-  user_data          = var.user_data
-  volume_size        = var.volume_size
+  source               = "../../module/ec2"
+  system               = local.system
+  env                  = local.env
+  cidr_blocks_local    = var.cidr_blocks_local
+  cidr_vpc             = local.cidr_vpc
+  cidr_public_subnet   = local.cidr_public_subnet
+  az1                  = "${local.aws_region}${local.az}"
+  ami                  = local.ami
+  instance_type        = local.instance_type
+  key_name             = local.key_name
+  user_data            = local.user_data
+  iam_instance_profile_name = data.aws_iam_instance_profile.cert-profile.name
+  volume_size          = local.volume_size
 }
 
 resource "aws_route53_record" "a-host" {

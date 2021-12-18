@@ -30,3 +30,7 @@ variable "user_data" {
 variable "volume_size" {
   type = number
 }
+variable "iam_instance_profile_name" {
+  description = "attached IAM role name for the instance"
+  type        = string
+}

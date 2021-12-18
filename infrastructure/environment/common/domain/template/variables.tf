@@ -1,8 +1,8 @@
 variable "aws_region" {
-  type    = string
+  type = string
 }
 variable "aws_profile" {
-  type    = string
+  type = string
 }
 variable "system" {
   description = "the name of the system including the instance"
