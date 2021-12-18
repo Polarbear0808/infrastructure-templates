@@ -22,8 +22,6 @@ services:
     image: certbot/dns-route53:${CERTBOT_TAG}
     container_name: certbot
     command: certonly --dns-route53 --dns-route53-propagation-seconds=300 --non-interactive --agree-tos -m ${MAIL_ADDR} -d "${DOMAIN_NAME}" -d "*.${DOMAIN_NAME}"
-    depends_on:
-      - web
     network_mode: host
     volumes:
       - letsencrypt:/etc/letsencrypt

@@ -37,4 +37,10 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Ingore private domain settings
+environment/common/domain/*.*
+
+# Track .gitkeep
+!**/.gitkeep
+
 # End of https://www.toptal.com/developers/gitignore/api/terraform

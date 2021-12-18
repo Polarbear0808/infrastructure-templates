@@ -55,15 +55,14 @@ variable "volume_size" {
 variable "zone_name" {
   description = "ゾーンのドメイン名"
   type        = string
-  default     = "example.com"
 }
-variable "ns_records" {
-  description = "NSレコードに設定するDNS一覧"
-  type        = list(string)
-  default     = []
-}
-variable "www_host_name" {
-  description = "ゾーン内のwebサーバのホスト名"
-  type        = string
-  default     = "www"
-}
+# variable "ns_records" {
+#   description = "NSレコードに設定するDNS一覧"
+#   type        = list(string)
+#   default     = []
+# }
+# variable "www_host_name" {
+#   description = "ゾーン内のwebサーバのホスト名"
+#   type        = string
+#   default     = "www"
+# }

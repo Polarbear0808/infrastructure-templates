@@ -28,4 +28,6 @@ chmod +x /usr/local/bin/docker-compose
 ln -snf /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # download this repository
+cd /home/ubuntu
 git clone https://github.com/Polarbear0808/infrastructure-templates.git
+chown -R ubuntu:ubuntu infrastructure-templates
